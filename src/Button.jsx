@@ -1,25 +1,32 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+
+export default function FeedbackForm() {
+    const [isSent, setIsSent] = useState(false);
+    const [message, setMessage] = useState('');
 
 
-const Button = () => {
+    if (isSent) {
+        return <h1>Merci !</h1>;
+    } 
+    else {
+        // eslint-disable-next-line
+    
 
-    const [count, setCount] = useState(0)
+        return (
+        <form onSubmit={e => {
+            e.preventDefault();
+            alert(`Sending: "${message}"`);
+            setIsSent(true);
+        }}>
 
-    const incrementByFive = () => {
-        setCount(count + 5)
-    }
-
-    const decrementByFive = () => {
-        setCount(count - 5);
-    };
-
-    return(
-        <>
-            <h1>Count: {count}</h1>
-            <button onClick={incrementByFive}>Increment by 5</button>
-            <button onClick={decrementByFive}>Decrement by 5</button>
-        </>
-    )
+            <textarea
+            placeholder="Message"
+            value={message}
+            onChange={e => setMessage(e.target.value)}
+        />
+            <br />
+            <button type="submit">Envoyer</button>
+        </form>
+    );
+  }
 }
-
-export default Button 
