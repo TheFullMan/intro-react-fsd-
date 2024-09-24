@@ -9,7 +9,7 @@ function App() {
 
   const user = {
     name : "John",
-    lastname : "Wick",
+    lastName : "Wick",
     image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVRW5fkgsXXTqOBO_olteG5dxjnVQTq1CY2g&s'
   }
 
