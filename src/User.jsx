@@ -1,8 +1,11 @@
-const User = () => {
+import './User.css';
+
+const User = ({name, lastName, image}) => {
+console.log(props)
     return (
       <>
-        <h1>Samuel</h1>
-        <p>Fan de gaming, je suis en train d'apprendre à coder pour pouvoir coder mon propre Jeu un jour !</p>
+        <h1>Bonjour mon nom est {name} {lastName}</h1>
+        <img src={image} alt="image de profil"/>
       </>
     );
   };
