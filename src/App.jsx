@@ -1,23 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import SecondComponent from './SecondComponent'
-import User from './User'
+import { sculptureList } from './data.js';
+import {useState} from 'react'
 
-function App() {
+export default function Gallery() {
 
-  const user = {
-    name : "John",
-    lastName : "Wick",
-    image : 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVRW5fkgsXXTqOBO_olteG5dxjnVQTq1CY2g&s'
+  let index = 0;
+
+  function handleClick() {
+    index = index + 1;
   }
 
+  let sculpture = sculptureList[index];
   return (
     <>
-    <User {...user}/> 
+      <button onClick={handleClick}>
+        Suivant
+      </button>
+      <h2>
+        <i>{sculpture.name} </i>
+        par {sculpture.artist}
+      </h2>
+      <h3>
+        ({index + 1} sur {sculptureList.length})
+      </h3>
+      <img
+        src={sculpture.url}
+        alt={sculpture.alt}
+      />
+      <p>
+        {sculpture.description}
+      </p>
     </>
-  )
+  );
 }
 
-export default App
+
